@@ -40,3 +40,48 @@ void Board::IfFull ()
         }
     }
 }
+
+
+
+void CreateNewFigure ()
+{
+
+}
+
+void AddNewFigure ()
+{
+   curX = BoardWidth / 2;
+   curY = 0;
+   bool fx = true, fy = true;
+   while (fx && fy)
+   {
+       for (int i = 0; i < 4; ++i)
+       {
+           if (curX + CurrentFigure[i][0] < 0)
+                fx = false;
+            if (curY + CurrentFigure[i][1] < 0)
+                fy = false;
+       }
+       if (!fx)
+            ++curX;
+       if(!fy)
+            ++curY;
+   }
+
+   for (int i = 0; i < 4; ++i)
+       board[curX + CurrentFigure[i][0]][curY + CurrentFigure[i][1]] = ; //номер цвета
+}
+
+void MoveNewFigureDown ()
+{
+    while (!NotFinished ())
+        curX++;
+}
+
+bool NotFinished ()
+{
+    for (int i = 0; i < 4; ++i)
+        if (curX == 0 || board[curX + CurrentFigure[i][0] + 1][curY + CurrentFigure[i][1]] != 0)
+            return true;
+    return false;
+}
