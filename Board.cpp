@@ -76,6 +76,7 @@ void MoveNewFigureDown ()
 {
     while (!NotFinished ())
         curX++;
+    AddAtBoard ();
 }
 
 bool NotFinished ()
@@ -84,4 +85,10 @@ bool NotFinished ()
         if (curX == 0 || board[curX + CurrentFigure[i][0] + 1][curY + CurrentFigure[i][1]] != 0)
             return true;
     return false;
+}
+
+void AddAtBoard ()
+{
+    for (int i = 0; i < 4; ++i)
+        board[curX + CurrentFigure[i][0]][curY + CurrentFigure[i][1]] = ; //номер цвета
 }

@@ -17,11 +17,17 @@ class Board
         void SetSize(int height = 15, int width = 10);
         void IfFull();
         void DeleteFull(int NumberOfFull);
+        void CreateNewFigure ();
+        void AddNewFigure ();
+        void MoveNewFigure ();
+        bool NotFinished ();
+        void AddAtBoard ();
     protected:
     private:
         int BoardWidth, BoardHeight;
         int CurX, curY;
         vector <vector <int> > board;
+        int CurrentFigure[4][2];
 };
 
 #endif // BOARD_H
