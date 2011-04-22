@@ -14,7 +14,7 @@ class Board
 {
     public:
         Board();
-//        virtual ~Board();
+        virtual ~Board();
         void SetSize (int height = 15, int width = 10);
         void FindFull ();
         void DeleteFull (int number);
@@ -28,7 +28,7 @@ class Board
         void RotateCCW ();
         void MoveLeft ();
         void MoveRight ();
-//    protected:
+    protected:
     private:
         int BoardWidth, BoardHeight;
         int curX, curY;

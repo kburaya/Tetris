@@ -11,7 +11,7 @@ class Figure
 {
     public:
         Figure();
-//        ~Figure();
+        ~Figure();
         void SetFigure (Names type);
         Names GetName () const;
         Names RandomType ();
