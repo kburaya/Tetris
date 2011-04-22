@@ -8,7 +8,7 @@
 using namespace std;
 
 enum Colors { White = 0, Red = 1, Green = 2, Yellow = 3, Blue = 4,
-			  Pink = 5, Grey = 6, Purple = 7, Black = 8 };
+				Pink = 5, Grey = 6, Purple = 7, Black = 8 };
 
 class Board
 {
