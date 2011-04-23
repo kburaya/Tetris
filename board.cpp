@@ -43,8 +43,10 @@ bool Board::CreateNewFigure ()
 	current.SetFigure (current.RandomType ());
 	curX = BoardHeight / 2 + 1;
 	curY = -current.MinY ();
-	if (!CheckMove (current, curX, curY))
+	if (!CheckMove (current, curX, curY)) {
+		finished = true;
 		return false;
+	}
 	else
 		return true;
 }
