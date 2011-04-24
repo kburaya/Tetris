@@ -10,8 +10,8 @@ enum Names { Z, S, Line, T, Square, L, Ml, Bomb };
 class Figure
 {
     public:
-        Figure();
-        ~Figure();
+        Figure ();
+        virtual ~Figure ();
         void SetFigure (Names type);
         Names GetName () const;
         Names RandomType ();

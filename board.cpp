@@ -1,8 +1,13 @@
 #include "board.h"
 
-Board::Board()
+Board::Board ()
 {
     Board::SetSize ();
+}
+
+Board::Board ()
+{
+	board.clear ();
 }
 
 void Board::SetSize (int height, int width)

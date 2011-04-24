@@ -5,6 +5,11 @@ Figure::Figure ()
     SetFigure (RandomType ());
 }
 
+Figure::~Figure ()
+{
+
+}
+
 Names Figure::RandomType ()
 {
     int t = rand()%8;
