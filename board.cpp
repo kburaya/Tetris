@@ -5,7 +5,7 @@ Board::Board ()
     Board::SetSize ();
 }
 
-Board::Board ()
+Board::~Board ()
 {
 	board.clear ();
 }

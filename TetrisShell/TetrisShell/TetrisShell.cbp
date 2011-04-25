@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TetrisShell" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\TetrisShell" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="$(WXWIN)\lib\gcc_dll\mswud" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)\lib\gcc_dll\mswud" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="libwxmsw28ud.a" />
+					<Add directory="$(WXWIN)\lib\gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\TetrisShell" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="$(WXWIN)\lib\gcc_dll\mswu" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="$(WXWIN)\lib\gcc_dll\mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add library="libwxmsw28u.a" />
+					<Add directory="$(WXWIN)\lib\gcc_dll" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DWXUSINGDLL" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add option='[[if (PLATFORM == PLATFORM_MSW &amp;&amp; (GetCompilerFactory().GetCompilerVersionString(_T(&quot;gcc&quot;)) &gt;= _T(&quot;4.0.0&quot;))) print(_T(&quot;-Wno-attributes&quot;));]]' />
+			<Add option="-Winvalid-pch" />
+			<Add option="-include wx_pch.h" />
+			<Add option="-DWX_PRECOMP" />
+			<Add option="-Wall" />
+			<Add directory="$(WXWIN)\include" />
+			<Add directory="$(WXWIN)\contrib\include" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="$(WXWIN)\include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+		</Linker>
+		<Unit filename="TetrisShellApp.cpp" />
+		<Unit filename="TetrisShellApp.h" />
+		<Unit filename="TetrisShellMain.cpp" />
+		<Unit filename="TetrisShellMain.h" />
+		<Unit filename="resource.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="wx_pch.h">
+			<Option compile="1" />
+			<Option weight="0" />
+		</Unit>
+		<Unit filename="wxsmith\TetrisShellframe.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="TetrisShellApp.cpp" main="TetrisShellFrame" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/TetrisShellframe.wxs" src="TetrisShellMain.cpp" hdr="TetrisShellMain.h" fwddecl="0" i18n="1" name="TetrisShellFrame" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
