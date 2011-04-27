@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
-TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(150, 250))
+TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(150*3, 250*3))
 {
     tmpBoard = new Board();
     timer = new wxTimer(this, 1);
@@ -12,6 +12,7 @@ TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title,
     this->Centre();
     srand(time(NULL));
     timer->Start(300);
+    tmpBoard->CreateNewFigure();
 }
 
 void TetrisShell::OnPaint(wxPaintEvent& event)
@@ -35,17 +36,13 @@ void TetrisShell::OnPaint(wxPaintEvent& event)
     }
 
     brush.SetColour(wxColors[tmpBoard->GetCurFigure().Color()]);
-    for (int i = 0; i < 0; ++i)
+    for (int i = 0; i < 4; ++i)
         dc.DrawRectangle(tmpBoard->GetCurX() * h + tmpBoard->GetCurFigure().X(i) * h, tmpBoard->GetCurY() * h + tmpBoard->GetCurFigure().Y(i) * h, h, h);
 }
 
 void TetrisShell::OnTimer(wxCommandEvent& event)
 {
-    tmpBoard->LineDown();
-    if(!tmpBoard->GetFinished())
-        tmpBoard->CreateNewFigure();
-    if(tmpBoard->GetFinished())
-        timer->Stop();
     Refresh();
+    tmpBoard->LineDown();
 }
 

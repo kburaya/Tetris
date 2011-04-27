@@ -52,8 +52,10 @@ bool Board::CreateNewFigure ()
 		finished = true;
 		return false;
 	}
-	else
+	else {
+        finished = false;
 		return true;
+	}
 }
 
 void Board::LineDown ()

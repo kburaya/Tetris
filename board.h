@@ -34,7 +34,6 @@ class Board
         int GetCurY () { return curY;};
         vector <vector <int> > GetCurBoard () { return board;};
         Figure GetCurFigure () { return current;};
-        bool GetFinished () {return finished;};
     protected:
     private:
         int BoardWidth, BoardHeight;
