@@ -15,7 +15,7 @@ class Board
     public:
         Board();
         virtual ~Board();
-        void SetSize (int height = 15, int width = 10);
+        void SetSize (int height = 25, int width = 15);
         void FindFull ();
         void DeleteFull (int number);
         bool CreateNewFigure ();
@@ -28,6 +28,13 @@ class Board
         void RotateCCW ();
         void MoveLeft ();
         void MoveRight ();
+        int GetCurWidth () { return BoardWidth;};
+        int GetCurHeight() { return BoardHeight;};
+        int GetCurX () { return curX;};
+        int GetCurY () { return curY;};
+        vector <vector <int> > GetCurBoard () { return board;};
+        Figure GetCurFigure () { return current;};
+        bool GetFinished () {return finished;};
     protected:
     private:
         int BoardWidth, BoardHeight;
