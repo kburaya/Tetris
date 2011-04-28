@@ -12,7 +12,7 @@ Figure::~Figure ()
 
 Names Figure::RandomType ()
 {
-    int t = rand()%8;
+    int t = rand()%7;
     if (!(t == 7 && rand()%3 == 0))
         t = rand()%7;
     return Names (t);

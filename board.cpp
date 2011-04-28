@@ -46,8 +46,8 @@ void Board::FindFull ()
 bool Board::CreateNewFigure ()
 {
 	current.SetFigure (current.RandomType ());
-	curX = BoardHeight / 2 + 1;
-	curY = -current.MinY ();
+	curY = BoardWidth / 2;
+	curX = -current.MinX ();
 	if (!CheckMove (current, curX, curY)) {
 		finished = true;
 		return false;
@@ -63,7 +63,6 @@ void Board::LineDown ()
     if (CheckMove (current, curX+1, curY))
     	curX++;
     else {
-    	finished = true;
     	AddToBoard ();
     }
 }
@@ -113,7 +112,7 @@ void Board::RotateCW ()
 void Board::MoveLeft ()
 {
 	if (CheckMove(current, curX, curY-1))
-		++curY;
+		--curY;
 }
 
 void Board::MoveRight ()
