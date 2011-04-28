@@ -2,7 +2,7 @@
 #include <ctime>
 #include <cstdlib>
 
-TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(150, 250))
+TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(150*2, 250*2))
 {
     tmpBoard = new Board();
     timer = new wxTimer(this, 1);
@@ -18,6 +18,7 @@ TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title,
 void TetrisShell::OnPaint(wxPaintEvent& event)
 {
     wxPaintDC dc(this);
+    SetBackgroundStyle(wxBG_STYLE_CUSTOM);
 
     wxColor col1;
     col1.Set(wxT("#f0ffff"));
@@ -44,7 +45,7 @@ void TetrisShell::OnPaint(wxPaintEvent& event)
 
 void TetrisShell::OnTimer(wxCommandEvent& event)
 {
-    Refresh();tmpBoard->LineDown();
+    Refresh();
     if(tmpBoard->CheckMove(tmpBoard->GetCurFigure(), tmpBoard->GetCurX(), tmpBoard->GetCurY()))
     {
         tmpBoard->LineDown();
@@ -76,6 +77,10 @@ void TetrisShell::OnKeyDown(wxKeyEvent& event)
         break;
     case WXK_UP:
         tmpBoard->RotateCW();
+        break;
+    case WXK_DOWN:
+        while(tmpBoard->CheckMove(tmpBoard->GetCurFigure(), tmpBoard->GetCurX(), tmpBoard->GetCurY() + 1))
+            tmpBoard->LineDown();
         break;
     }
 }
