@@ -6,6 +6,9 @@ TetrisShell::TetrisShell(const wxString& title) : wxFrame(NULL, wxID_ANY, title,
 {
     tmpBoard = new Board();
     timer = new wxTimer(this, 1);
+    //wxStatusBar *sb = CreateStatusBar();
+    //sb->SetStatusText((wxT("0")));
+    isPaused = false;
     this->Connect(wxEVT_TIMER, wxCommandEventHandler(TetrisShell::OnTimer));
     this->Connect(wxEVT_PAINT, wxPaintEventHandler(TetrisShell::OnPaint));
     this->Connect(wxEVT_KEY_DOWN, wxKeyEventHandler(TetrisShell::OnKeyDown));
@@ -64,7 +67,17 @@ void TetrisShell::OnTimer(wxCommandEvent& event)
 void TetrisShell::OnKeyDown(wxKeyEvent& event)
 {
     int keycode = event.GetKeyCode();
-
+    if(keycode == 'p' || keycode == 'P')
+    {
+        isPaused = !isPaused;
+    }
+    if(isPaused)
+    {
+        timer->Stop();
+        //m_stsbar->SetStatusText(wxT("PAUSED"));
+    }
+    else
+        timer -> Start(300);
     switch (keycode)
     {
     case WXK_LEFT:

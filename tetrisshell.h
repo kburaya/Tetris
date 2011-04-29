@@ -21,6 +21,8 @@ class TetrisShell : public wxFrame
         Board *tmpBoard;
         int WinHeight () { return GetClientSize().GetHeight();};
         int WinWidth () { return GetClientSize().GetWidth();};
+        bool isPaused;
+        wxStatusBar *m_stsbar;
 };
 
 #endif // TETRISSHELL_H
